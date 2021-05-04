@@ -2,9 +2,9 @@ import java.util.Scanner;
 public class hero {
     Scanner sc= new Scanner(System.in);
 
-//String type= sc.nextLine();
-//switch(type){
-        /*case "knight":
+String type= sc.nextLine();
+switch(type){
+        case "knight":
             int Health = 100;
             int Attack1 = 10;
             int Attack2 = 25;
