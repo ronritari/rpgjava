@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Random;
 
 public class start {
 Scanner sc = new Scanner(System.in);
@@ -11,6 +12,10 @@ public void start(){
     Hero wizard = new Hero("Wizard", 75.0, 15.0, 30.0, 60.0);
     Hero bigboi = new Hero("Big boi", 150.0, 5.0, 20.0, 40.0);
     Hero myhero = new Hero("knight", 100, 10, 25, 50);
+
+    Enemy troll = new Enemy("troll", 50, 20);
+    Enemy orc = new Enemy("orc", 100, 20);
+    Enemy dragon = new Enemy("dragon", 200, 25);
     //System.out.println(knight.getName());
     listOfHeroes.add(knight);
     listOfHeroes.add(wizard);
@@ -23,6 +28,7 @@ public void start(){
     System.out.println("to choose knight press 0 \nto choose wizard press 1 \nto choose big boi press 2");
     int x = sc.nextInt();
 
+    myhero.fight(troll);
 
     switch (x){
         case 0:
@@ -52,11 +58,10 @@ public void start(){
 
 
     while(gameOver = false) {
-        System.out.println("Start by choosing your character.");
-        System.out.println("Write the number of the hero you would like to choose");
 
 
-        gameOver = true;
+
+        gameOver = true; //nf
         }
     }
 }

@@ -1,7 +1,10 @@
 import java.util.List;
 import java.util.Scanner;
+import java.util.Random;
 public class Hero {
-
+    Random r= new Random();
+    Scanner sc = new Scanner(System.in);
+    Enemy enemy;
     private String name;
     private double health, Attack1, Attack2, Attack3;
 
@@ -56,33 +59,29 @@ public class Hero {
 
     public void getStats(){
         System.out.println("name: "+getName()+". health: "+getHealth()+". attack1: "+getA1()+". Attac2: "+getA2()+". Attack3: "+getA3());
+     }
 
-    }
+     public void fight(Enemy e){
 
-    /*public static void pickHero(int x){
+         while(this.health>0 && e.getHealth()>0){
+             System.out.println("choose an attack: 1 for light attack odds of enemy blocking is 1/10 \n2 for medium attack odds for blocking is 1/5\n3 for strong attack odds for blocking is 1/3");
+             int x= sc.nextInt();
+             switch (x){
+                 case 1:
+                     int r= r.nextInt();
+                     getA1();
+                     break;
+                 case 2:
+                     getA2();
+                     break;
+                 case 3:
+                     getA3();
+                     break;
+             }
+         }
 
-        switch(x){
-            case 0:
-                int health = 100;
-                int Attack1 = 10;
-                int Attack2 = 25;
-                int Attack3 = 50;
-                break;
-            case 1:
-                health = 75;
-                Attack1 = 15;
-                Attack2 = 30;
-                Attack3 = 60;
-                break;
-            case 2:
-                health = 150;
-                Attack1 = 5;
-                Attack2 = 20;
-                Attack3 = 40;
-                break;
-        }*/
-        //list.add(type, health, Attack1, Attack2, Attack3); //[type, health, Attack1, Attack2, Attack3]
-       // return; //list;
+     }
+
     }
 
 
