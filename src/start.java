@@ -12,7 +12,7 @@ public synchronized void start()throws InterruptedException {
         boolean gameOver = false;
         ArrayList<Hero> listOfHeroes = new ArrayList<>();
 
-        Hero knight = new Hero("Knight", 100.0, 10.0, 25.0, 50.0, 0);
+        Hero knight = new Hero("Knight", 100.0, 10.0, 25.0, 50.0, 0); //makes a list of all heros to the java class
         Hero wizard = new Hero("Wizard", 75.0, 15.0, 30.0, 60.0, 0);
         Hero bigboi = new Hero("Big boi", 150.0, 5.0, 20.0, 40.0, 0);
         Hero myhero = new Hero("knight", 100, 10, 25, 50, 0);
@@ -26,11 +26,14 @@ public synchronized void start()throws InterruptedException {
         listOfHeroes.add(bigboi);
         listOfHeroes.add(myhero);
 
-        knight.getStats();
+        knight.getStats();//prints out all the stats of characters
+        wait(1000);
         wizard.getStats();
+        wait(1000);
         bigboi.getStats();
+        wait(1000);
         System.out.println("to choose knight press 0 \nto choose wizard press 1 \nto choose big boi press 2");
-        int x = sc.nextInt();
+        int x = sc.nextInt();//swich case to edit myhero to the players desired stats
 
 
         switch (x) {
@@ -74,10 +77,19 @@ public synchronized void start()throws InterruptedException {
             } else {
                 System.out.println("congrats you defeated " + troll.getName());
             }
+            wait(5000);
             System.out.println("you continiue story");
 
             System.out.println("continue to village");
+            wait(5000);
             System.out.println("side quest");
+            System.out.println("would you like to do side quest?\npress 1 for yes\npress 2 for no");
+            int choose = sc.nextInt();
+            if (choose == 1) {
+                myhero.setA4(100);
+            } else {
+                System.out.println("you did not do side quest");
+            }
             myhero.fight(orc);
             if (myhero.getHealth() < 0) {
                 System.out.println("game over you lost");
@@ -88,13 +100,6 @@ public synchronized void start()throws InterruptedException {
             System.out.println("you continiue story");
 
             System.out.println("continue to cave");
-            System.out.println("would you like to do side quest?\npress 1 for yes\npress 2 for no");
-            int choose = sc.nextInt();
-            if (choose == 1) {
-                myhero.setA4(100);
-            } else {
-                System.out.println("you did not do side quest");
-            }
             myhero.fight(dragon);
             if (myhero.getHealth() <= 0) {
                 System.out.println("game over you lost");
