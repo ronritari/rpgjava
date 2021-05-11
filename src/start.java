@@ -32,26 +32,28 @@ public synchronized void start()throws InterruptedException {
         wait(1000);
         bigboi.getStats();
         wait(1000);
-        System.out.println("to choose knight press 0 \nto choose wizard press 1 \nto choose big boi press 2");
+        System.out.println("As you can see knight wizard and big boi have different attributes witch will impact the game \n you have three different attacks. the heavyer attack increases opponents odds to block");
+        wait(5000);
+        System.out.println("to choose knight press 1 \nto choose wizard press 2 \nto choose big boi press 3");
         int x = sc.nextInt();//swich case to edit myhero to the players desired stats
 
 
         switch (x) {
-            case 0:
+            case 1:
                 myhero.setName("knight");
                 myhero.setHealth(100);
                 myhero.setAttack1(10);
                 myhero.setAttack2(25);
                 myhero.setAttack3(50);
                 break;
-            case 1:
+            case 2:
                 myhero.setName("Wizard");
                 myhero.setHealth(75);
                 myhero.setAttack1(15);
                 myhero.setAttack2(30);
                 myhero.setAttack3(60);
                 break;
-            case 2:
+            case 3:
                 myhero.setName("big boi");
                 myhero.setHealth(150);
                 myhero.setAttack1(5);
@@ -60,7 +62,7 @@ public synchronized void start()throws InterruptedException {
                 break;
         }
 
-        System.out.println("Your hero is: " + myhero.getName());
+        System.out.println("Your journey begins as: " + myhero.getName()+" \n ");
         int gameover = 0;
 
         while (gameover == 0) {
@@ -72,9 +74,11 @@ public synchronized void start()throws InterruptedException {
             wait(5000);
             myhero.fight(troll);
             if (myhero.getHealth() < 0) {
+                wait(5000);
                 System.out.println("game over you lost");
                 gameover = 1;
             } else {
+                wait(3000);
                 System.out.println("congrats you defeated " + troll.getName());
             }
             wait(5000);
@@ -94,16 +98,18 @@ public synchronized void start()throws InterruptedException {
                 System.out.println("the villager is now sad :(");
             }*/
 
-
+            wait(3000);
             myhero.fight(orc);
             if (myhero.getHealth() < 0) {
+                wait(5000);
                 System.out.println("game over you lost");
                 gameover = 1;
             } else {
+                wait(5000);
                 System.out.println("congrats you defeated " + orc.getName());
             }
             System.out.println("you continiue story");
-
+            wait(5000);
             System.out.println("continue to cave");
             myhero.fight(dragon);
             if (myhero.getHealth() <= 0) {
