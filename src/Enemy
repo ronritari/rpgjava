@@ -33,5 +33,5 @@ public class Enemy {
 
     public void setAttack1 (double setA1){
         this.attack1 = setA1;
-    }//kkkkkkk
+    }
 }
