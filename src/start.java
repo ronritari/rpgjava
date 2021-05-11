@@ -84,14 +84,17 @@ public synchronized void start()throws InterruptedException {
             wait(5000);
             System.out.println("side quest");
 
-            System.out.println("do you want to help villager press 1 for yes press 2 for no");
+            /*
+            System.out.println("do you want to help villager press 1 for yes press 2 for no");       faruk does side quest
             int b = sc.nextInt();
             if (b==1){
                 System.out.println("you helped villager he has a gift for you");
                 myhero.setA4(100);
             }else{
                 System.out.println("the villager is now sad :(");
-            }
+            }*/
+
+
             myhero.fight(orc);
             if (myhero.getHealth() < 0) {
                 System.out.println("game over you lost");
