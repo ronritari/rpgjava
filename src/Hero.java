@@ -69,65 +69,87 @@ public class Hero {
     public void getStats() {
         System.out.println("name: " + getName() + ". health: " + getHealth() + ". attack1: " + getA1() + ". Attac2: " + getA2() + ". Attack3: " + getA3());
     }
+//public synchronized void start()throws InterruptedException
+    public synchronized void fight(Enemy e)throws InterruptedException {
+        try {
 
-    public void fight(Enemy e) {
-
-        while (this.health > 0 && e.getHealth() > 0) {
-            System.out.println("choose an attack: 1 for light attack odds of enemy blocking is 1/10 \n2 for medium attack odds for blocking is 1/5\n3 for strong attack odds for blocking is 1/3");
-            int x = sc.nextInt();
-            switch (x) {
-                case 1:
-                    int R1 = r.nextInt(10) + 1;
-                    if (R1 == 10) {
-                        System.out.println("your attack was blocked");
-                    } else {
-                        System.out.println("you did " + getA1() + " amount of damage");
-                        e.setHealth(e.getHealth() - getA1());
-                        System.out.println("enemys health is" + e.getHealth());
-                    }
-                    break;
-                case 2:
-                    int R2 = r.nextInt(5) + 1;
-                    if (R2 == 5) {
-                        System.out.println("your attack was blocked");
-                    } else {
-                        System.out.println("you did " + getA2() + " amount of damage");
-                        e.setHealth(e.getHealth() - getA2());
-                        System.out.println("enemys health is" + e.getHealth());
-                    }
+            while (this.health > 0 && e.getHealth() > 0) {
+                if (getA4() > 10) {
+                    System.out.println("choose an attack: \n1 for light attack " + getA1() + " odds of enemy blocking is 1/10 \n2 for medium attack " + getA2() + " odds for blocking is 1/5\n3 for strong attack " + getA3() + "  odds for blocking is 1/3\n4 For special attack " + getA4() + " odds of blocking 1/2");
+                } else {
+                    System.out.println("choose an attack: \n1 for light attack odds of enemy blocking is 1/10 \n2 for medium attack odds for blocking is 1/5\n3 for strong attack odds for blocking is 1/3");
+                }
+                //System.out.println("choose an attack: \n1 for light attack odds of enemy blocking is 1/10 \n2 for medium attack odds for blocking is 1/5\n3 for strong attack odds for blocking is 1/3");
+                int x = sc.nextInt();
+                switch (x) {
+                    case 1:
+                        int R1 = r.nextInt(10) + 1;
+                        if (R1 == 10) {
+                            System.out.println("your attack was blocked");
+                        } else {
+                            System.out.println("you did " + getA1() + " amount of damage");
+                            e.setHealth(e.getHealth() - getA1());
+                            System.out.println("enemys health is " + e.getHealth());
+                        }
                         break;
-                case 3:
-                    int R3 = r.nextInt(10) + 1;
-                    if (R3 == 3) {
-                        System.out.println("your attack was blocked");
-                    } else {
-                        System.out.println("you did " + getA3() + " amount of damage");
-                        e.setHealth(e.getHealth() - getA3());
-                        System.out.println("enemys health is" + e.getHealth());
-                    }
+                    case 2:
+                        int R2 = r.nextInt(5) + 1;
+                        if (R2 == 5) {
+                            System.out.println("your attack was blocked");
+                        } else {
+                            System.out.println("you did " + getA2() + " amount of damage");
+                            e.setHealth(e.getHealth() - getA2());
+                            System.out.println("enemys health is" + e.getHealth());
+                        }
+                        break;
+                    case 3:
+                        int R3 = r.nextInt(3) + 1;
+                        if (R3 == 3) {
+                            System.out.println("enemy chose " + R3);
+                            System.out.println("your attack was blocked");
+                        } else {
+                            System.out.println("enemy chose " + R3 + " your attack was not blocked");
+                            System.out.println("you did " + getA3() + " amount of damage");
+                            e.setHealth(e.getHealth() - getA3());
+                            System.out.println("enemys health is" + e.getHealth());
+                        }
+                        break;
+                    case 4:
+                        int R4 = r.nextInt(2) + 1;
+                        if (R4 == 2) {
+                            System.out.println("your attack was blocked");
+                        } else {
+                            System.out.println("you did " + getA4() + " amount of damage");
+                            e.setHealth(e.getHealth() - getA4());
+                            System.out.println("enemys health is " + e.getHealth());
+                        }
                         break;
 
                 }
 
-                if(e.getHealth()<=0){
+                if (e.getHealth() <= 0) {
                     break;
                 }
 
-            System.out.println("now the enemy attacks. you have a chance 1 out of 4 to block. \n choose wisely a number between 1 and 4");
-            int block = sc.nextInt();
-            int ER1 = r.nextInt(4)+1;
-            if(ER1==block){
-                System.out.println("you've blocked the attack");
-            }else{
-                System.out.println(e.getName()+" made a hit. you lost "+e.geta1()+" amount of health");
-                setHealth(getHealth()-e.geta1());
+                System.out.println("now the enemy attacks. you have a chance 1 out of 4 to block. \n choose wisely a number between 1 and 4");
+                int block = sc.nextInt();
+                int ER1 = r.nextInt(4) + 1;
+                if (ER1 == block) {
+                    System.out.println("you chose " + block + " and enemy chose " + ER1);
+                    System.out.println("you've blocked the attack");
+                } else {
+                    System.out.println("you chose " + block + " and enemy chose " + ER1);
+                    System.out.println(e.getName() + " made a hit. you lost " + e.geta1() + " amount of health");
+                    setHealth(getHealth() - e.geta1());
+                }
+
+                System.out.println("your remaining health is " + getHealth() + "\nEnemy has " + e.getHealth() + " remaining");
+
             }
 
-            System.out.println("your remaining health is "+getHealth()+"\nEnemy has "+e.getHealth()+" remaining");
-
-            }
-
+        } catch (Exception ex) {
+            System.out.println("error");
         }
-
+    }
 
     }
