@@ -16,7 +16,7 @@ public void start(){
 
     Enemy troll = new Enemy("troll", 50, 20);
     Enemy orc = new Enemy("orc", 100, 20);
-    Enemy dragon = new Enemy("dragon", 200, 25);
+    Enemy dragon = new Enemy("dragon", 300, 25);
     //System.out.println(knight.getName());
     listOfHeroes.add(knight);
     listOfHeroes.add(wizard);
@@ -59,7 +59,7 @@ public void start(){
 
     while(gameover==0) {
         System.out.println("the story starts here");
-        System.out.println("more backgorun narritor stuff bla bla bla");
+        System.out.println("Once upon a time they were two beautiful  villages located on sea side, its inhabitants lived in prosperity, \nthey were taking out corals from the depths of the sea, they were a happy peoples and they have a fun, \nbut this situation did not last forever.");
         System.out.println("you ran in to troll must fight");
         myhero.fight(troll);
         if(myhero.getHealth()<0){
@@ -82,15 +82,22 @@ public void start(){
         System.out.println("you continiue story");
 
         System.out.println("continue to cave");
-        System.out.println("side quest");
+        System.out.println("would you like to do side quest?\npress 1 for yes\npress 2 for no");
+        int choose= sc.nextInt();
+        if (choose==1){
+            myhero.setA4(100);
+        }else{
+            System.out.println("you did not do side quest");
+        }
         myhero.fight(dragon);
         if(myhero.getHealth()<=0){
             System.out.println("game over you lost");
             gameover=1;
         }else{
             System.out.println("congrats you defeated "+dragon.getName());
+            System.out.println("you won the game :)");
         }
-        System.out.println("you won the game :)");
+        //System.out.println("you won the game :)");
 
         gameover=1;
         }
