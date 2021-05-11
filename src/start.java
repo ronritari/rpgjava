@@ -16,7 +16,7 @@ public void start(){
 
     Enemy troll = new Enemy("troll", 50, 20);
     Enemy orc = new Enemy("orc", 100, 20);
-    Enemy dragon = new Enemy("dragon", 200, 25);
+    Enemy dragon = new Enemy("dragon", 300, 25);
     //System.out.println(knight.getName());
     listOfHeroes.add(knight);
     listOfHeroes.add(wizard);
@@ -89,11 +89,13 @@ public void start(){
             gameover=1;
         }else{
             System.out.println("congrats you defeated "+dragon.getName());
+            System.out.println("you won the game :)");
         }
-        System.out.println("you won the game :)");
+        //System.out.println("you won the game :)");
 
         gameover=1;
         }
     System.out.println("game is done");
     }
 }
+
