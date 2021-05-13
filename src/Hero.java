@@ -17,6 +17,15 @@ public class Hero {
         this.Attack4 = a4;
 
     }
+    public void delay(String s, long delay) throws InterruptedException {
+        for ( int i= 0; i < s.length(); i++) {
+            // for loop delays individual String characters
+
+            System.out.print(s.charAt(i));
+            Thread.sleep(delay); //time is in milliseconds
+        }
+        System.out.println(""); // this is the space in between lines
+    }
 
     public String getName() {
         return name;
@@ -66,8 +75,8 @@ public class Hero {
         this.Attack4 = setA4;
     }
 
-    public void getStats() {
-        System.out.println("name: " + getName() + ". health: " + getHealth() + ". attack1: " + getA1() + ". Attac2: " + getA2() + ". Attack3: " + getA3());
+    public void getStats() throws InterruptedException {
+        delay("name: " + getName() + ". health: " + getHealth() + ". attack1: " + getA1() + ". Attac2: " + getA2() + ". Attack3: " + getA3(),50);
     }
 //public synchronized void start()throws InterruptedException
     public synchronized void fight(Enemy e)throws InterruptedException {
@@ -156,7 +165,7 @@ public class Hero {
                 int block = sc.nextInt();
                 int ER1 = r.nextInt(4) + 1;
                 if (ER1 == block) {
-                    wait(5000);
+                    wait(3000);
                     System.out.println("you chose " + block + " and enemy chose " + ER1);
                     wait(1000);
                     System.out.println("you've blocked the attack");
@@ -168,7 +177,7 @@ public class Hero {
                     setHealth(getHealth() - e.geta1());
                     wait(7000);
                 }
-                wait(5000);
+                wait(3000);
                 System.out.println("your remaining health is " + getHealth() + "\nEnemy has " + e.getHealth() + " remaining");
 
             }
