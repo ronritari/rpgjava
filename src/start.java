@@ -107,21 +107,25 @@ public synchronized void start()throws InterruptedException {
                 delay("congrats you defeated " + troll.getName()+ "\nThe heroes must flee before sun up as the events will get fowarded fast.\nthey followed the map from the troll to the next challenge. ",20);
             }
             wait(5000);
-            delay("you continiue story",20);
+            delay("now it 's time to look for the ORC ",20);
 
-            delay("continue to village",20);
+            delay("in middle of the forest by chance they came  across a small village, it was good to get some rest",20);
             wait(5000);
-            delay("side quest",20);
+            delay("The local villager asked a heroes for a help",20);
+            delay("do you want to help villager press 1 for yes press 2 for no",20);
 
-            /*
-            System.out.println("do you want to help villager press 1 for yes press 2 for no");       faruk does side quest
             int b = sc.nextInt();
             if (b==1){
-                System.out.println("you helped villager he has a gift for you");
+                delay("you decide to help the villager by bringing the logs to built the bridge", 20);
+                delay("you helped villager he has a gift for you",20);
+                delay("you got a spcial rocket to help you on your quist\nthis rocket can' hit only once but you have a 50% chance to hit the target ",20);
                 myhero.setA4(100);
             }else{
-                System.out.println("the villager is now sad :(");
-            }*/
+                delay("you didn't show the best of you, you left him without help", 20);
+            }
+                delay("The heroes found the ORC trails and they follow it, until they foun his treehouse ",20);
+                delay("the heroes try to ambush but they didn't find him indide, as the ORC gome back he got ungry and start to fight",20);
+
 
             wait(3000);
             myhero.fight(orc);
