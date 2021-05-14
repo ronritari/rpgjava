@@ -40,17 +40,22 @@ public synchronized void start()throws InterruptedException {
 
 
         wait(1000);
+        System.out.println(" ");
         delay("To bring peace and clarity the great wizard asked the two other tribes send foward their greatest heroes\nto sacrifice their life in order to bring peace", 20);
         wait(5000);
+        System.out.println(" ");
         delay("The KNIGHT needs to go to the jungle of amazon to the Hiung tribe to bring the the special sword but he should first kill the tigre who always attack the tribe. \n after succsessfully gaining the mighty sword he was ready for battle", 20);
         knight.getStats();//prints out all the stats of characters
         wait(5000);
+        System.out.println(" ");
         delay("The WIZARD went to the coral kingdom to bring the magic wand but he most first help them in their fight against sharks. \nThe wand comes with great power but the Wizard is old and small", 20);
         wizard.getStats();
         wait(5000);
-        delay("the BIGBOI went to the big mountain of himalaya to bring the of the silver shield.silver shield but he need first to help the a tribe to built a wood bridge between the two sides of village then they will show him the cave of bear where the silver shield is, \nbut he needs to battle also with the bear. \nwith the protection of the shield he only has one free arm to punch therefore making his attacks weaker", 20);
+        System.out.println(" ");
+        delay("the BIGBOI went to the big mountain of himalaya to bring the of the silver shield, \nbut he need first to help the a tribe to built a wood bridge between the two sides of village then they will show him the cave of bear where the silver shield is, \nbut he needs to battle also with the bear. \nwith the protection of the shield he only has one free arm to punch therefore making his attacks weaker", 20);
         bigboi.getStats();
         wait(5000);
+        System.out.println(" ");
         delay("As you can see knight wizard and big boi have different attributes witch will impact the game \n you have three different attacks. the heavyer attack increases opponents odds to block", 20);
         wait(5000);
         delay("to choose knight press 1 \nto choose wizard press 2 \nto choose big boi press 3",20);
@@ -59,7 +64,7 @@ public synchronized void start()throws InterruptedException {
 
         switch (x) {
             case 1:
-                myhero.setName("knight");
+                myhero.setName("Knight");
                 myhero.setHealth(100);
                 myhero.setAttack1(10);
                 myhero.setAttack2(25);
@@ -73,7 +78,7 @@ public synchronized void start()throws InterruptedException {
                 myhero.setAttack3(60);
                 break;
             case 3:
-                myhero.setName("big boi");
+                myhero.setName("Big boi");
                 myhero.setHealth(150);
                 myhero.setAttack1(5);
                 myhero.setAttack2(20);//lllllll
@@ -124,26 +129,40 @@ public synchronized void start()throws InterruptedException {
                 wait(5000);
                 delay("game over you lost",20);
                 gameover = 1;
+                break;
             } else {
                 wait(5000);
-                delay("congrats you defeated " + orc.getName(), 20);
+                delay("congrats you defeated " + orc.getName()+". to celebrate the three heroes went to a tavern to enjoy their victory rounds", 20);
             }
-            delay("you continiue story",20);
+            switch (x){
+                case 1:
+                    myhero.setHealth(100);
+                    break;
+                case 2:
+                    myhero.setHealth(75);
+                    break;
+                case 3:
+                    myhero.setHealth(150);
+            }
+            delay("After rounds thee heroes felt like new so they regained their full health back.",20);
             wait(5000);
-            delay("continue to cave",20);
+            delay("not long after great victory they knew the biggest challenge was ahead of them but they hed high hopes finding this new special attack.\nDragons are usually reside in “dank caves, deep pools, wild mountain reaches, sea bottoms, haunted forests”, \nall places which would have been fraught with danger for human. now the heros should work like a team,",20);
+            delay("Echo of the heroes footsteps woke the dragon and he was not set to negosiate anything. the FINAL BATTLE began.", 20);
             myhero.fight(dragon);
             if (myhero.getHealth() <= 0) {
                 delay("game over you lost",20);
                 gameover = 1;
+                break;
             } else {
-                delay("congrats you defeated " + dragon.getName(),20);
+                delay("congrats you defeated " + dragon.getName()+" as a souvenier the Wizard took one tooth the size of his hand to tell everyone danger is no more.\nHeroes returned back to the village and an era of peace had begun",20);
                 delay("you won the game :)",20);
+                myhero.getStats();
             }
             //System.out.println("you won the game :)");
 
             gameover = 1;
         }
-        delay("game is done",50);
+        delay("credits to Samuel, Faruk and Ron",20);
     }catch(Exception e){
         System.out.println("error");
     }

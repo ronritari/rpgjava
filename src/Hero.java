@@ -113,7 +113,7 @@ public class Hero {
                         } else {
                             System.out.println("you did " + getA2() + " amount of damage");
                             e.setHealth(e.getHealth() - getA2());
-                            System.out.println("enemys health is" + e.getHealth());
+                            System.out.println("enemys health is " + e.getHealth());
                         }
                         break;
                     case 3:
@@ -122,10 +122,10 @@ public class Hero {
                             //System.out.println("enemy chose " + R3);
                             System.out.println("your attack was blocked");
                         } else {
-                            System.out.println("Enemy chose " + R3 + " your attack was not blocked");
+                            //System.out.println("Enemy chose " + R3 + " your attack was not blocked");
                             System.out.println("you did " + getA3() + " amount of damage");
                             e.setHealth(e.getHealth() - getA3());
-                            System.out.println("Enemys health is" + e.getHealth());
+                            System.out.println("Enemys health is " + e.getHealth());
                         }
                         break;
                     case 4:
@@ -175,11 +175,11 @@ public class Hero {
                     wait(1000);
                     System.out.println(e.getName() + " made a hit. you lost " + e.geta1() + " amount of health");
                     setHealth(getHealth() - e.geta1());
-                    wait(7000);
+                    wait(5000);
                 }
-                wait(3000);
+                wait(1000);
                 System.out.println("your remaining health is " + getHealth() + "\nEnemy has " + e.getHealth() + " remaining");
-
+                wait(5000);
             }
 
         } catch (Exception ex) {
