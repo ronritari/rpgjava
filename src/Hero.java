@@ -17,7 +17,7 @@ public class Hero {
         this.Attack4 = a4;
 
     }
-    public void delay(String s, long delay) throws InterruptedException {
+    public static void delay(String s, long delay) throws InterruptedException {
         for ( int i= 0; i < s.length(); i++) {
             // for loop delays individual String characters
 
@@ -78,6 +78,8 @@ public class Hero {
     public void getStats() throws InterruptedException {
         delay("name: " + getName() + ". health: " + getHealth() + ". attack1: " + getA1() + ". Attac2: " + getA2() + ". Attack3: " + getA3(),50);
     }
+
+
 //public synchronized void start()throws InterruptedException
     public synchronized void fight(Enemy e)throws InterruptedException {
         try {
@@ -90,7 +92,7 @@ public class Hero {
                     wait(3000);
                     System.out.println("choose an attack: \n1 for light attack odds of enemy blocking is 1/10 \n2 for medium attack odds for blocking is 1/5\n3 for strong attack odds for blocking is 1/3");
                 }
-                //System.out.println("choose an attack: \n1 for light attack odds of enemy blocking is 1/10 \n2 for medium attack odds for blocking is 1/5\n3 for strong attack odds for blocking is 1/3");
+
                 int x = sc.nextInt();
                 wait(5000);
                 switch (x) {
@@ -119,10 +121,10 @@ public class Hero {
                     case 3:
                         int R3 = r.nextInt(3) + 1;
                         if (R3 == 3) {
-                            //System.out.println("enemy chose " + R3);
+
                             System.out.println("your attack was blocked");
                         } else {
-                            //System.out.println("Enemy chose " + R3 + " your attack was not blocked");
+
                             System.out.println("you did " + getA3() + " amount of damage");
                             e.setHealth(e.getHealth() - getA3());
                             System.out.println("Enemys health is " + e.getHealth());
@@ -145,14 +147,6 @@ public class Hero {
                             System.out.println("you have alredy used your special move so you missed a turn");
 
                         }
-                        /*int R4 = r.nextInt(2) + 1;
-                        if (R4 == 2) {
-                            System.out.println("your attack was blocked");
-                        } else {
-                            System.out.println("you did " + getA4() + " amount of damage");
-                            e.setHealth(e.getHealth() - getA4());
-                            System.out.println("enemys health is " + e.getHealth());
-                        }*/
                         break;
 
                 }

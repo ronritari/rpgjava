@@ -4,7 +4,7 @@ public class Main {
         try {
             s.start();
         } catch (InterruptedException e) {
-            e.printStackTrace();//klko
+            e.printStackTrace();
         }
 
     }
